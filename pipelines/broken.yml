@@ -27,4 +27,4 @@ jobs:
         args:
           - -c
           - |
-            exit 0
+            exit 1 

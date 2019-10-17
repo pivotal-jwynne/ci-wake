@@ -11,8 +11,8 @@ resources:
   source:
     days: [ Thursday ]
     location: Europe/Dublin
-    start: 11:57 AM
-    stop: 12:50 PM
+    start: 2:11 PM
+    stop: 2:50 PM
     interval: 1h
 - name: really-important-repo
   type: git
