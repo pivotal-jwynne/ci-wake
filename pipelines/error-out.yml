@@ -6,7 +6,7 @@ resource_types:
 
 
 resources:
-- name: slack-schedule
+- name: some-sort-of-timing-thing
   type: time
   source:
     days: [ Thursday ]
@@ -23,7 +23,7 @@ resources:
 jobs:
 - name: solving-all-the-worlds-problems-one-screen-at-a-time
   plan:
-  - get: slack-schedule
+  - get: some-sort-of-timing-thing
     trigger: true
   - get: really-important-repo
     trigger: true
@@ -35,6 +35,8 @@ jobs:
         source:
           repository: cloudopseuci/eu-ci
           tag: latest
+      inputs:
+      - name: really-important-repo
       run:
         path: /bin/bash
         args:
