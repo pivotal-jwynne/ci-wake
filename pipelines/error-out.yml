@@ -1,0 +1,43 @@
+resource_types:
+  - name: gcs-resource
+    type: docker-image
+    source:
+      repository: frodenas/gcs-resource
+
+
+resources:
+- name: slack-schedule
+  type: time
+  source:
+    days: [ Thursday ]
+    location: Europe/Dublin
+    start: 11:57 AM
+    stop: 12:50 PM
+    interval: 1h
+- name: really-important-repo
+  type: git
+  source:
+    uri: https://github.com/pivotal-jwynne/ci-wake.git
+    branch: master
+
+jobs:
+- name: solving-all-the-worlds-problems-one-screen-at-a-time
+  plan:
+  - get: slack-schedule
+    trigger: true
+  - get: really-important-repo
+    trigger: true
+  - task: build
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: cloudopseuci/eu-ci
+          tag: latest
+      run:
+        path: /bin/bash
+        args:
+          - -c
+          - |
+            exit 0
