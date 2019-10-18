@@ -3,7 +3,7 @@
 
 ## Usage 
 
-# ci-wake.sh
+### ci-wake.sh
 You will need to change the url and team name in the `check_pipelines` function. 
 then simply run 
 
@@ -13,7 +13,7 @@ then simply run
 
 *Warning*  if you currently have "green" CI the monitor will switch off immediately 
 
-# server
+### server
 
 This tool allows you to force the CI machine to wake up. To run;
 
